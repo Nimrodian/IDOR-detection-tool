@@ -1,0 +1,35 @@
+1. Download Python 3.9 or above, and check it is installed correctly 
+   by running 'python --version' in the Windows terminal/cmd.
+
+2. Download the latest version of VS code (although it should work with any Python IDE). 
+
+3. If using VS code, install the Python extension to allow the use of the language.
+   open the folder containing the IDOR_detection.py and intercept.py files. From here 
+   press Ctrl+Shift+P and type 'Python: select interpreter' and select the Python install
+   Path that you just downloaded.
+
+4. The requests library is not an automatically included library with Python. Run 
+   'pip install requests' in the terminal to install it. 
+ 
+5. Finally, the Man in the middle (mitm) proxy needs to be installed for the request
+   interception to be successful. Install here: https://mitmproxy.org/ 
+   As well as the proxy itself, the mitm python library is also needed. So in the terminal
+   - 'pip install mitmproxy'. 
+   The proxy automatically listens on Port 8080. So I recommend setting up a Firefox browser
+   with a custom proxy to listen on that port. This way you can navigate an API or webapp 
+   And not get any background traffic. 
+
+   Once running the proxy and Firefox is configured to use the proxy on Local host 127.0.0.1 and port 8080
+   then visit http://mitm.it/ and follow the instructions to get the trusted mitm certificate. This
+   is so Firefox doesn't block all websites because it thinks MITM proxy is malicious software.
+   
+   The FoxyProxy firefox extension can set up a proxy listening on localhost 127.0.0.1 on port 8080:
+   https://addons.mozilla.org/en-GB/firefox/addon/foxyproxy-standard/
+
+   The interception command is set-up to work 127.0.0.1 port 8080 so those settings are a must. 
+
+6. Once that is all set-up, simply run the IDOR_detection.py script from the terminal. 
+   using 'python \.IDOR_detection.py' and it should all work fine!
+
+*Please do not hesitate to email me if a step is unclear, I am aware it is not the simplest
+ system to get up and running, but I will help in any way I can* 
